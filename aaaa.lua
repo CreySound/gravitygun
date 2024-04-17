@@ -7,7 +7,7 @@ _G.invitelink = "MeQtKTRafK" --to advertise
 _G.logmessages = true -- Logs messages in the discord server
 _G.webhook = "https://discord.com/api/webhooks/1229583065500876891/MSjYbVxsaRHPvP-qV8VR5aCeYcIowd0QTPg_oiVYJ2WPoPehOudfzv3ETPp1TVu1FIYa" -- The webhook to log messages.
 
-_G_enablekill = true -- Enables players to use commands that kill the bot
+_G.enablekill = true -- Enables players to use commands that kill the bot
 
 _G.showblockui = true -- Increases FPS and privacy
 _G.stoprendering = true -- Increases FPS
