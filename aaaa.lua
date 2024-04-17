@@ -1,4 +1,5 @@
 -- GITHUBS FUCKING UPDATE DELAY IS FUCKING RETARDED AS FUCK
+-- so no f auckf
 --[[
 -- ! ! CONFIG ! ! --
 
