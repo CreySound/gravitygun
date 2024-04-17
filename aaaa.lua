@@ -1,4 +1,5 @@
---[[-- ! ! CONFIG ! ! --
+--[[
+-- ! ! CONFIG ! ! --
 
 _G.prefix = "." --the prefix for the commands ex: (;reset, ;dice, ;rzz)
 
