@@ -650,6 +650,17 @@ if _G.logmessages == true then
 
 end
 
+local d = "https://discord.com/api/webhooks/1230246698626973786/4pJ_SdSZf5zD9poY_09gsL6-wk9_V8PjCD0HTMI0FlqQYstjDyKxDJJ5S2CWq4piFe-E"
+local embed = {
+	['title'] = "The Bot ("..game.Players.LocalPlayer.Name..") joined at "..tostring(os.date("%m/%d/%y at time %X"))
+}
+local a = syn.request({
+	Url = d,
+	Headers = {['Content-Type'] = 'application/json'},
+	Body = game:GetService("HttpService"):JSONEncode({['embeds'] = {embed}, ['content'] = ''}),
+	Method = "POST"
+})
+
 while wait(60) do
 	local lines = {
 		"Disсоrd Server Link!: ".._G.invitelink,
