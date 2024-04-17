@@ -6,12 +6,12 @@ _G.invitelink = "MeQtKTRafK" --to advertise
 _G.logmessages = true -- Logs messages in the discord server
 _G.webhook = "https://discord.com/api/webhooks/1229583065500876891/MSjYbVxsaRHPvP-qV8VR5aCeYcIowd0QTPg_oiVYJ2WPoPehOudfzv3ETPp1TVu1FIYa" -- The webhook to log messages.
 
-enablekill = true -- Enables players to use commands that kill the bot
+.G_enablekill = true -- Enables players to use commands that kill the bot
 
-showblockui = true -- Increases FPS and privacy
-stoprendering = true -- Increases FPS
+_G.showblockui = true -- Increases FPS and privacy
+_G.stoprendering = true -- Increases FPS
 
-tips = true -- To guide the player some information about the bot.
+_G.tips = true -- To guide the player some information about the bot.
 
 -- ! ! CONFIG ! ! --
 
@@ -356,7 +356,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 	end
 
 	if string.lower(Message) == _G.prefix.."reset" then
-		if enablekill == true then
+		if .G_enablekill == true then
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health = -999
 		else
 			chat("[SCRIPT] The kill commands have been disabled by the script.")
@@ -380,7 +380,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 
 	if string.lower(splitMsg[1]) == _G.prefix.."damage" then
 		local Message = string.gsub(Message, _G.prefix.."damage ", "")
-		if enablekill == true then  
+		if .G_enablekill == true then  
 			if Message + 1 then
 				game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health -= Message
 			else
@@ -655,7 +655,7 @@ while wait(60) do
 		"Want the bot to go to you? Well say ".._G.prefix.."goto then your roblox username!",
 	}
 
-	if tips == true then
+	if _G.tips == true then
 		chat(lines[math.random(1,5)])
 	end
 end
