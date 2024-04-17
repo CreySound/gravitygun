@@ -28,7 +28,7 @@ local credit = "ControlBot Script made by CreySound, do not attempt to plagiariz
 local worked = "[SCRIPT] Bot is Running!"
 local cmds = "Commands are: ".._G.prefix.."cmds, ".._G.prefix.."invite, ".._G.prefix.."credits, ".._G.prefix.."info, ".._G.prefix.."about, ".._G.prefix.."chat <string>, ".._G.prefix.."botchat, ".._G.prefix.."goto <user>, ".._G.prefix.."walkto <user>, ".._G.prefix.."forward <seconds>, ".._G.prefix.."backward <seconds>, ".._G.prefix.."left <seconds>, right <seconds>, ".._G.prefix.."stop, ".._G.prefix.."jump,"
 local cmds2 = ".sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, ".._G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz .rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
-local _version = 2.35
+local _version = 2.351
 
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("SendNotification",{
