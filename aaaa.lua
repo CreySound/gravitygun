@@ -356,7 +356,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 	end
 
 	if string.lower(Message) == _G.prefix.."reset" then
-		if .G_enablekill == true then
+		if _G.enablekill == true then
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health = -999
 		else
 			chat("[SCRIPT] The kill commands have been disabled by the script.")
@@ -380,7 +380,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 
 	if string.lower(splitMsg[1]) == _G.prefix.."damage" then
 		local Message = string.gsub(Message, _G.prefix.."damage ", "")
-		if .G_enablekill == true then  
+		if _G.enablekill == true then  
 			if Message + 1 then
 				game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health -= Message
 			else
