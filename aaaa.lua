@@ -1,23 +1,24 @@
+-- ! ! CONFIG ! ! --
+
+_G.prefix = "." --the prefix for the commands ex: (;reset, ;dice, ;rzz)
+
+_G.invitelink = "MeQtKTRafK" --to advertise
+_G.logmessages = true -- Logs messages in the discord server
+_G.webhook = "https://discord.com/api/webhooks/1229583065500876891/MSjYbVxsaRHPvP-qV8VR5aCeYcIowd0QTPg_oiVYJ2WPoPehOudfzv3ETPp1TVu1FIYa" -- The webhook to log messages.
+
+enablekill = true -- Enables players to use commands that kill the bot
+
+showblockui = true -- Increases FPS and privacy
+stoprendering = true -- Increases FPS
+
+tips = true -- To guide the player some information about the bot.
+
+-- ! ! CONFIG ! ! --
+
+
 local function chat(_string)
 	game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(_string, 'All')
 end
-
--- ! ! CONFIG ! ! --
-
-local prefix = "." --the prefix for the commands ex: (;reset, ;dice, ;rzz)
-
-local invitelink = "MeQtKTRafK" --to advertise
-local logmessages = true -- Logs messages in the discord server
-local webhook = "https://discord.com/api/webhooks/1229583065500876891/MSjYbVxsaRHPvP-qV8VR5aCeYcIowd0QTPg_oiVYJ2WPoPehOudfzv3ETPp1TVu1FIYa" -- The webhook to log messages.
-
-local enablekill = true -- Enables players to use commands that kill the bot
-
-local showblockui = true -- Increases FPS and privacy
-local stoprendering = true -- Increases FPS
-
-local tips = true -- To guide the player some information about the bot.
-
--- ! ! CONFIG ! ! --
 
 
 
@@ -220,34 +221,34 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 	local Message = plr.Message or ""
 	local splitMsg = string.split(Message, " ")
 
-	if string.lower(Message) == prefix.."cmds" then
+	if string.lower(Message) == _G.prefix.."cmds" then
 		chat(cmds)
 		chat(cmds2)
 		--send(wh, plr.Name, Message)
 	end
-	if string.lower(Message) == prefix.."invite" then
-		chat("Disсоrd: "..invitelink)
+	if string.lower(Message) == _G.prefix.."invite" then
+		chat("Disсоrd: ".._G.invitelink)
 		--send(wh, plr.Name, Message)
 	end
-	if string.lower(Message) == prefix.."credits" then
+	if string.lower(Message) == _G.prefix.."credits" then
 		chat(credit)
 	end
-	if string.lower(Message) == prefix.."info" then
+	if string.lower(Message) == _G.prefix.."info" then
 		chat("[SCRIPT] This bot was programmed by CreySound. It can be controlled by players!")
 		chat("[SCRIPT] It can do something like chatting or... anything! (almost)")
 		chat("[SCRIPT] The version that is running on is V".._version.."!")
 
 	end
-	if string.lower(Message) == prefix.."about" then
+	if string.lower(Message) == _G.prefix.."about" then
 		chat("My name is Bob!, my purpose is to be controlled by people like you!")
 		chat("i have so much cool features like you can make me chat and make me move!")
 	end
-	if string.lower(splitMsg[1]) == prefix.."chat" then
-		local Message = string.gsub(Message, prefix.."chat ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."chat" then
+		local Message = string.gsub(Message, _G.prefix.."chat ", "")
 		game.Players:Chat(Message)
 		game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, 'All')
 	end
-	if string.lower(Message) == prefix.."botchat" then
+	if string.lower(Message) == _G.prefix.."botchat" then
 		local msgs = {
 			"Waddup!",
 			"ayy!",
@@ -268,8 +269,8 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 
 		chat(msgs[math.random(1, 15)])
 	end
-	if string.lower(splitMsg[1]) == prefix.."goto" then
-		local Message = string.gsub(Message, prefix.."goto ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."goto" then
+		local Message = string.gsub(Message, _G.prefix.."goto ", "")
 		if game.Players:FindFirstChild(Message) then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(Message).Character.HumanoidRootPart.CFrame
 		else
@@ -277,16 +278,16 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 		end
 	end
 
-	if string.lower(splitMsg[1]) == prefix.."walkto" then
-		local Message = string.gsub(Message, prefix.."walkto ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."walkto" then
+		local Message = string.gsub(Message, _G.prefix.."walkto ", "")
 		if game.Players:FindFirstChild(Message) then
 			game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').WalkToPoint = game.Players:FindFirstChild(Message).Character.HumanoidRootPart.Position
 		else
 			chat("[SCRIPT] The input you gave me is not a player. It is case sensetive! Next time, type the target's full username not displayname!")
 		end
 	end
-	if string.lower(splitMsg[1]) == prefix.."forward" then
-		local Message = string.gsub(Message, prefix.."forward ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."forward" then
+		local Message = string.gsub(Message, _G.prefix.."forward ", "")
 		if Message + 1 then
 			keyrelease(keys["s"])
 			keypress(keys["w"])
@@ -299,8 +300,8 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
 	end
-	if string.lower(splitMsg[1]) == prefix.."backward" then
-		local Message = string.gsub(Message, prefix.."backward ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."backward" then
+		local Message = string.gsub(Message, _G.prefix.."backward ", "")
 		if Message + 1 then
 			keyrelease(keys["w"])
 			keypress(keys["s"])
@@ -313,8 +314,8 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end	
 	end
-	if string.lower(splitMsg[1]) == prefix.."left" then
-		local Message = string.gsub(Message, prefix.."left ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."left" then
+		local Message = string.gsub(Message, _G.prefix.."left ", "")
 		if Message + 1 then
 			keyrelease(keys["d"])
 			keypress(keys["a"])
@@ -327,8 +328,8 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
 	end
-	if string.lower(splitMsg[1]) == prefix.."right" then
-		local Message = string.gsub(Message, prefix.."right ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."right" then
+		local Message = string.gsub(Message, _G.prefix.."right ", "")
 		if Message + 1 then
 			keyrelease(keys["a"])
 			keypress(keys["d"])
@@ -341,27 +342,27 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end	
 	end
-	if string.lower(Message) == prefix.."stop" then
+	if string.lower(Message) == _G.prefix.."stop" then
 		keyrelease(keys["w"])
 		keyrelease(keys["s"])
 		keyrelease(keys["a"])
 		keyrelease(keys["d"])
 	end
-	if string.lower(Message) == prefix.."jump" then
+	if string.lower(Message) == _G.prefix.."jump" then
 		game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
 	end
-	if string.lower(Message) == prefix.."sit" then
+	if string.lower(Message) == _G.prefix.."sit" then
 		game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Sit = true
 	end
 
-	if string.lower(Message) == prefix.."reset" then
+	if string.lower(Message) == _G.prefix.."reset" then
 		if enablekill == true then
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health = -999
 		else
 			chat("[SCRIPT] The kill commands have been disabled by the script.")
 		end
 	end
-	if string.lower(Message) == prefix.."dance" then
+	if string.lower(Message) == _G.prefix.."dance" then
 		local dances = {"27789359", "30196114", "248263260", "45834924", "33796059", "28488254", "52155728"}
 		local animation = Instance.new("Animation")
 		animation.AnimationId = "rbxassetid://" .. dances[math.random(1, #dances)]
@@ -373,12 +374,12 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			animation:Destroy()
 		end
 	end
-	if string.lower(Message) == prefix.."undance" then
+	if string.lower(Message) == _G.prefix.."undance" then
 		undance()
 	end
 
-	if string.lower(splitMsg[1]) == prefix.."damage" then
-		local Message = string.gsub(Message, prefix.."damage ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."damage" then
+		local Message = string.gsub(Message, _G.prefix.."damage ", "")
 		if enablekill == true then  
 			if Message + 1 then
 				game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health -= Message
@@ -389,14 +390,14 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("[SCRIPT] The kill commands have been disabled by the script.")
 		end
 	end
-	if string.lower(Message) == prefix.."stun" then
+	if string.lower(Message) == _G.prefix.."stun" then
 		game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
 	end
-	if string.lower(Message) == prefix.."unstun" then
+	if string.lower(Message) == _G.prefix.."unstun" then
 		game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
 	end
-	if string.lower(splitMsg[1]) == prefix.."spin" then
-		local Message = string.gsub(Message, prefix.."spin ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."spin" then
+		local Message = string.gsub(Message, _G.prefix.."spin ", "")
 		if Message + 1 then
 			local function getRoot(char)
 				local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
@@ -412,19 +413,19 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
 	end
-	if string.lower(Message) == prefix.."unspin" then
+	if string.lower(Message) == _G.prefix.."unspin" then
 		if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning") then
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
 		end
 	end
-	if string.lower(Message) == prefix.."unspin" then
+	if string.lower(Message) == _G.prefix.."unspin" then
 		if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning") then
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
 		end
 	end
 
-	if string.lower(splitMsg[1]) == prefix.."bang" then
-		local Message = string.gsub(Message, prefix.."bang ", "")
+	if string.lower(splitMsg[1]) == _G.prefix.."bang" then
+		local Message = string.gsub(Message, _G.prefix.."bang ", "")
 		if Message + 1 then
 			local banganim = Instance.new("Animation", game.Players.LocalPlayer.Character.Humanoid)
 			banganim.AnimationId = "rbxassetid://148840371"
@@ -439,14 +440,14 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
 	end
-	if string.lower(Message) == prefix.."unbang" then
+	if string.lower(Message) == _G.prefix.."unbang" then
 		unbng()
 	end
-	if string.lower(Message) == prefix.."fps" then
+	if string.lower(Message) == _G.prefix.."fps" then
 		game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(_G.FPS, 'All')
 
 	end
-	if string.lower(Message) == prefix.."roast" then
+	if string.lower(Message) == _G.prefix.."roast" then
 		local roasts = {
 			"If brains were dynamite, you wouldn't have enough to blow your nose.",
 			"Are you always this obtuse, or are you making a special effort today?",
@@ -502,7 +503,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 		chat(roasts[math.random(1,50)])
 
 	end
-	if string.lower(Message) == prefix.."rzz" then
+	if string.lower(Message) == _G.prefix.."rzz" then
 		local roasts = {
 			"Can I be your snowflake? I promise to never melt away from your heart.",
 			"Are you French? Because Eiffel for you.",
@@ -558,7 +559,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 		chat(roasts[math.random(1,50)])
 
 	end
-	if string.lower(Message) == prefix.."rickroll" then
+	if string.lower(Message) == _G.prefix.."rickroll" then
 		chat("never gonna give you up!")
 		wait(1)
 		chat("never gonna let you down")
@@ -574,7 +575,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 		chat("and hurt you")
 
 	end
-	if string.lower(Message) == prefix.."flipcoin" then
+	if string.lower(Message) == _G.prefix.."flipcoin" then
 		chat("Flipping coin...")
 		wait(0.4)
 		chat("Coins on the air...")
@@ -586,30 +587,30 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 			chat("Tails! 🐈")
 		end
 	end
-	if string.lower(Message) == prefix.."dice" then
+	if string.lower(Message) == _G.prefix.."dice" then
 		chat("Rolling dice...")
 		wait(1 + math.random())
 		local randomnumber = math.random(1,6)
 		chat("It rolled on "..randomnumber.."!🎲")
 	end
-	if string.lower(Message) == prefix.."freeze" then
+	if string.lower(Message) == _G.prefix.."freeze" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 	end
-	if string.lower(Message) == prefix.."unfreeze" then
+	if string.lower(Message) == _G.prefix.."unfreeze" then
 		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
 	end
 
 end)
 
 
-if logmessages == true then
+if _G.logmessages == true then
 
 	local marketplaceService = game:GetService("MarketplaceService")
 
 	local isSuccessful, info = pcall(marketplaceService.GetProductInfo, marketplaceService, Game.PlaceId)
 	if isSuccessful then
 
-		local e = webhook
+		local e = _G.webhook
 		local embed1 = {
 			['title'] = 'Beginning of Message logs on '..info.Name.." at "..tostring(os.date("%m/%d/%y at time %X"))
 		}
@@ -619,12 +620,12 @@ if logmessages == true then
 			Body = game:GetService("HttpService"):JSONEncode({['embeds'] = {embed1}, ['content'] = ''}),
 			Method = "POST"
 		})
-		function logMsg(Webhook, Player, Message)
+		function logMsg(webhook, Player, Message)
 			local embed = {
 				['description'] = Player..": "..Message.."  " ..tostring(os.date("| time %X")) 
 			}
 			local a = syn.request({
-				Url = Webhook,
+				Url = _G.webhook,
 				Headers = {['Content-Type'] = 'application/json'},
 				Body = game:GetService("HttpService"):JSONEncode({['embeds'] = {embed}, ['content'] = ''}),
 				Method = "POST"
@@ -647,11 +648,11 @@ end
 
 while wait(60) do
 	local lines = {
-		"Disсоrd Server Link!: "..invitelink,
-		"Im a bot that can be controlled! Say "..prefix.."cmds to start",
-		"Want to know who made the bot? Say "..prefix.."credits",
-		"Want the bot to move? Say "..prefix.."forward then the amount of seconds you want it to move!",
-		"Want the bot to go to you? Well say "..prefix.."goto then your roblox username!",
+		"Disсоrd Server Link!: ".._G.invitelink,
+		"Im a bot that can be controlled! Say ".._G.prefix.."cmds to start",
+		"Want to know who made the bot? Say ".._G.prefix.."credits",
+		"Want the bot to move? Say ".._G.prefix.."forward then the amount of seconds you want it to move!",
+		"Want the bot to go to you? Well say ".._G.prefix.."goto then your roblox username!",
 	}
 
 	if tips == true then
