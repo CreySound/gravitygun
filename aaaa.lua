@@ -1,4 +1,4 @@
---ooooowrte esr ser wr e4 w4rwt4 e wt4e t4wew4 t dddddddddd v4b5 45v vb545t67456745765775454474545564565465465465464n cb hnbhvm bnvh   bnv b n bnv bnn bb nb n
+--ooooowrte esr ser wr e4 w4rwt4 e wt4e t4wew4 t dddddddddd v4b5 45v vb545t67456745765775454474545564565465465465464n cb hnbhvm bnvh   bnv b n bnv bnn bb nb n bnb  bn bn bn bnb n bnnb  bnb nb nb n bn bn b bnjasdgawdgjagsadgjasg bgdv fxf vjha d smfbdn v x v,dkvefd v,ffsdm dfmdfgu8odfghoifdjiouoinfdsu09fdj9onfejl3m3rq ,qwrsem,dfnlsdfidxfu dv nmbcxy78cvh98cjvnxvkucvxcjcvxoxcvhjvxchjkxvoiudo98fus7d08fohsdfuhsfdhkusdfkhsdfjkhdsfkjsdhf jkdshibsdh r32r 3w4 twr tw4
 --[[-- ! ! CONFIG ! ! --
 
 _G.prefix = "." --the prefix for the commands ex: (;reset, ;dice, ;rzz)
