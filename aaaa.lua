@@ -1,4 +1,4 @@
---ooooowrte esr ser 
+--ooooowrte esr ser wr e4 w4rwt4 e wt4e t4wew4 t
 --[[-- ! ! CONFIG ! ! --
 
 _G.prefix = "." --the prefix for the commands ex: (;reset, ;dice, ;rzz)
