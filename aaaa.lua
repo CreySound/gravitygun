@@ -162,9 +162,11 @@ wait(1 + math.random())
 chat(worked)
 chat(cmds)
 chat(cmds2)
-game["Run Service"]:Set3dRenderingEnabled(false)
+if _G.stoprendering == true then
+	game["Run Service"]:Set3dRenderingEnabled(false)
+end
 
-
+if _G.showblockui == true then
 local ScreenGui = Instance.new("ScreenGui")
 local TextLabel = Instance.new("TextLabel")
 
@@ -183,7 +185,7 @@ TextLabel.Text = [[ControlBot Running
 V]].._version
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 23.000
-
+end
 --game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, false)
 local services = {
 	["run_service"] = game:GetService("RunService"),
