@@ -1,4 +1,4 @@
---ooooowrte esr ser wr e4 w4rwt4 e wt4e t4wew4 t dddddddddd v4b5 45v vb545t67456745765775454474545564565465465465464
+--ooooowrte esr ser wr e4 w4rwt4 e wt4e t4wew4 t dddddddddd v4b5 45v vb545t67456745765775454474545564565465465465464n cb hnbhvm bnvh   bnv b n bnv bnn bb nb n
 --[[-- ! ! CONFIG ! ! --
 
 _G.prefix = "." --the prefix for the commands ex: (;reset, ;dice, ;rzz)
