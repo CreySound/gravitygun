@@ -384,7 +384,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 	if string.lower(Message) == _G.prefix.."lay" then
 		local ddd = Instance.new("Animation")
 		ddd.AnimationId = "rbxassetid://282574440"
-		daaaaa = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):LoadAnimation(animation)
+		daaaaa = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):LoadAnimation(ddd)
 		daaaaa.Looped = true
 		daaaaa:Play()
 		function unlay() --local bangDied = game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
