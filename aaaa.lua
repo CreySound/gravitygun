@@ -1,4 +1,4 @@
---[[
+
 -- ! ! CONFIG ! ! --
 
 _G.prefix = "." --the prefix for the commands ex: (;reset, ;dice, ;rzz)
@@ -15,7 +15,6 @@ _G.stoprendering = true -- Increases FPS
 _G.tips = true -- To guide the player some information about the bot.
 
 -- ! ! CONFIG ! ! --
-]]
 local function chat(_string)
 	game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(_string, 'All')
 end
