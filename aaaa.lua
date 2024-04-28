@@ -6,8 +6,6 @@ local function chat(_string)
 	end
 end
 
-
-
 local credit = "ControlBot Script made by CreySound, do not attempt to plagiarize."
 local worked = "[SCRIPT] Bot is Running!"
 local cmds = "Commands are: ".._G.prefix.."cmds, ".._G.prefix.."invite, ".._G.prefix.."credits, ".._G.prefix.."info, ".._G.prefix.."about, ".._G.prefix.."chat <string>, ".._G.prefix.."botchat, ".._G.prefix.."goto <user>, ".._G.prefix.."walkto <user>, "
