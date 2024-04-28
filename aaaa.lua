@@ -1,5 +1,4 @@
--- GITHUBS FUCKING UPDATE DELAY IS FUCKING RETARDED AS FUCK
--- so no f auckfaaaaa fuck delayads sda asd s adasd ae5y tw4a 43t33
+
 --[[
 -- ! ! CONFIG ! ! --
 
