@@ -35,7 +35,7 @@ local cmds2 = _G.prefix.."forward <seconds>, ".._G.prefix.."backward <seconds>, 
 local cmds3 = _G.prefix.."sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, "
 local cmds4 = _G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz, ".._G.prefix.."rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
 
-local _version = 2.51
+local _version = 2.52
 
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("SendNotification",{
@@ -696,11 +696,6 @@ local a = syn.request({
 	Body = game:GetService("HttpService"):JSONEncode({['embeds'] = {embed}, ['content'] = ''}),
 	Method = "POST"
 })
-
-for _, plr in pairs(game.Players:GetPlayers()) do
-	ChatLog(plr)
-end
-
 
 while wait(60) do
 	local lines = {
