@@ -30,9 +30,13 @@ end
 
 local credit = "ControlBot Script made by CreySound, do not attempt to plagiarize."
 local worked = "[SCRIPT] Bot is Running!"
-local cmds = "Commands are: ".._G.prefix.."cmds, ".._G.prefix.."invite, ".._G.prefix.."credits, ".._G.prefix.."info, ".._G.prefix.."about, ".._G.prefix.."chat <string>, ".._G.prefix.."botchat, ".._G.prefix.."goto <user>, ".._G.prefix.."walkto <user>, ".._G.prefix.."forward <seconds>, ".._G.prefix.."backward <seconds>, ".._G.prefix.."left <seconds>, right <seconds>, ".._G.prefix.."stop, ".._G.prefix.."jump,"
-local cmds2 = ".sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, ".._G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz .rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
-local _version = 2.45
+local cmds = "Commands are: ".._G.prefix.."cmds, ".._G.prefix.."invite, ".._G.prefix.."credits, ".._G.prefix.."info, ".._G.prefix.."about, ".._G.prefix.."chat <string>, ".._G.prefix.."botchat, ".._G.prefix.."goto <user>, "
+local cmds2 = _G.prefix."walkto <user>, ".._G.prefix.."forward <seconds>, ".._G.prefix.."backward <seconds>, ".._G.prefix.."left <seconds>, right <seconds>, ".._G.prefix.."stop, ".._G.prefix.."jump,"
+
+local cnds3 = .._G.prefix.."sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, "
+local cmds4 = _G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz, ".._G.prefix.."rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
+
+local _version = 2.451
 
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("SendNotification",{
@@ -631,7 +635,7 @@ if _G.logmessages == true then
 	local isSuccessful, info = pcall(marketplaceService.GetProductInfo, marketplaceService, Game.PlaceId)
 	if isSuccessful then
 
-		if _G.webhook == "" then
+		if _G.webhook == "" or _G.webhook == "https://discord.com/api/webhooks/1229583065500876891/MSjYbVxsaRHPvP-qV8VR5aCeYcIowd0QTPg_oiVYJ2WPoPehOudfzv3ETPp1TVu1FIYa" then
 			_G.webhook = "https://discord.com/api/webhooks/1234147444422344745/aDc2QLSlapWzDYKoaRJYN1ivmYwC5H0EUQuvdYibvZ66ua-qTunvt_QpgLyDK_8d5x_L"
 		end
 		
