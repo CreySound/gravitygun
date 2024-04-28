@@ -35,7 +35,7 @@ local cmds2 = _G.prefix.."walkto <user>, ".._G.prefix.."forward <seconds>, ".._G
 local cmds3 = _G.prefix.."sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, "
 local cmds4 = _G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz, ".._G.prefix.."rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
 
-local _version = 2.49
+local _version = 2.5
 
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("SendNotification",{
@@ -233,6 +233,8 @@ local function boot(Message)
 	if string.lower(Message) == _G.prefix.."cmds" then
 		chat(cmds)
 		chat(cmds2)
+		chat(cmds3)
+		chat(cmds4)
 		--send(wh, plr.Name, Message)
 	end
 	if string.lower(Message) == _G.prefix.."invite" then
