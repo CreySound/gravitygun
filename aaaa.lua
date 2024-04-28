@@ -1,5 +1,5 @@
 -- GITHUBS FUCKING UPDATE DELAY IS FUCKING RETARDED AS FUCK
--- so no f auckfaaaaa fuck delay
+-- so no f auckfaaaaa fuck delayads sda asd s adasd ae5y tw4a 43t33
 --[[
 -- ! ! CONFIG ! ! --
 
@@ -35,7 +35,7 @@ local cmds2 = _G.prefix.."walkto <user>, ".._G.prefix.."forward <seconds>, ".._G
 local cmds3 = _G.prefix.."sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, "
 local cmds4 = _G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz, ".._G.prefix.."rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
 
-local _version = 2.47
+local _version = 2.475
 
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("SendNotification",{
@@ -182,7 +182,7 @@ local TextLabel = Instance.new("TextLabel")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild('PlayerGui')
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.IgnoreGuiInset = true
-ScreenGui.ResetOnSpawn = false
+ScreenGui.ResetOnSpawn = false 
 
 TextLabel.Parent = ScreenGui
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 74, 74)
@@ -259,7 +259,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 	if string.lower(splitMsg[1]) == _G.prefix.."chat" then
 		local Message = string.gsub(Message, _G.prefix.."chat ", "")
 		game.Players:Chat(Message)
-		game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Message, 'All')
+		chat(Message)
 	end
 	if string.lower(Message) == _G.prefix.."botchat" then
 		local msgs = {
@@ -470,7 +470,7 @@ messageDoneFiltering.OnClientEvent:Connect(function(plr)
 		unbng()
 	end
 	if string.lower(Message) == _G.prefix.."fps" then
-		game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(_G.FPS, 'All')
+		chat(_G.FPS)
 
 	end
 	if string.lower(Message) == _G.prefix.."roast" then
