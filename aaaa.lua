@@ -1,7 +1,5 @@
 -- GITHUBS FUCKING UPDATE DELAY IS FUCKING RETARDED AS FUCK
 -- so no f auckfaaaaa fuck delayads sda asd s adasd ae5y tw4a 43t33
--- im going to shoot myself
-
 --[[
 -- ! ! CONFIG ! ! --
 
@@ -37,7 +35,7 @@ local cmds2 = _G.prefix.."walkto <user>, ".._G.prefix.."forward <seconds>, ".._G
 local cmds3 = _G.prefix.."sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, "
 local cmds4 = _G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz, ".._G.prefix.."rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
 
-local _version = 2.485
+local _version = 2.49
 
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("SendNotification",{
@@ -229,411 +227,413 @@ services["run_service"].RenderStepped:Connect(function()
 	end
 end)
 
-ChatLog = function(plr)
-	plr.Chatted:Connect(function(Message)
+local function boot(Message)
+	local splitMsg = string.split(Message, " ")
 
-	end)
-end
+	if string.lower(Message) == _G.prefix.."cmds" then
+		chat(cmds)
+		chat(cmds2)
+		--send(wh, plr.Name, Message)
+	end
+	if string.lower(Message) == _G.prefix.."invite" then
+		chat("Disсоrd: ".._G.invitelink)
+		--send(wh, plr.Name, Message)
+	end
+	if string.lower(Message) == _G.prefix.."credits" then
+		chat(credit)
+	end
+	if string.lower(Message) == _G.prefix.."info" then
+		chat("[SCRIPT] This bot was programmed by CreySound. It can be controlled by players!")
+		chat("[SCRIPT] It can do something like chatting or... anything! (almost)")
+		chat("[SCRIPT] The version that is running on is V".._version.."!")
 
-ChatLog = function(plr)
-	plr.Chatted:Connect(function(Message)
-		local Message = plr.Message or ""
-		local splitMsg = string.split(Message, " ")
+	end
+	if string.lower(Message) == _G.prefix.."about" then
+		chat("My name is Bob!, my purpose is to be controlled by people like you!")
+		chat("i have so much cool features like you can make me chat and make me move!")
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."chat" then
+		local Message = string.gsub(Message, _G.prefix.."chat ", "")
+		game.Players:Chat(Message)
+		chat(Message)
+	end
+	if string.lower(Message) == _G.prefix.."botchat" then
+		local msgs = {
+			"Waddup!",
+			"ayy!",
+			"wats good",
+			"holaa",
+			"i see",
+			"il think about it...",
+			"you good?",
+			"ayoooo",
+			"nahhh",
+			"oh hell nah",
+			"hell to the nah",
+			"jit trippin",
+			"ainnoway",
+			"im cringing rn",
+			"you mewin???"
+		}
 
-		if string.lower(Message) == _G.prefix.."cmds" then
-			chat(cmds)
-			chat(cmds2)
-			--send(wh, plr.Name, Message)
+		chat(msgs[math.random(1, 15)])
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."goto" then
+		local Message = string.gsub(Message, _G.prefix.."goto ", "")
+		if game.Players:FindFirstChild(Message) then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(Message).Character.HumanoidRootPart.CFrame
+		else
+			chat("[SCRIPT] The input you gave me is not a player. It is case sensetive! Next time, type the target's full username not displayname!")
 		end
-		if string.lower(Message) == _G.prefix.."invite" then
-			chat("Disсоrd: ".._G.invitelink)
-			--send(wh, plr.Name, Message)
-		end
-		if string.lower(Message) == _G.prefix.."credits" then
-			chat(credit)
-		end
-		if string.lower(Message) == _G.prefix.."info" then
-			chat("[SCRIPT] This bot was programmed by CreySound. It can be controlled by players!")
-			chat("[SCRIPT] It can do something like chatting or... anything! (almost)")
-			chat("[SCRIPT] The version that is running on is V".._version.."!")
+	end
 
+	if string.lower(splitMsg[1]) == _G.prefix.."walkto" then
+		local Message = string.gsub(Message, _G.prefix.."walkto ", "")
+		if game.Players:FindFirstChild(Message) then
+			game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').WalkToPoint = game.Players:FindFirstChild(Message).Character.HumanoidRootPart.Position
+		else
+			chat("[SCRIPT] The input you gave me is not a player. It is case sensetive! Next time, type the target's full username not displayname!")
 		end
-		if string.lower(Message) == _G.prefix.."about" then
-			chat("My name is Bob!, my purpose is to be controlled by people like you!")
-			chat("i have so much cool features like you can make me chat and make me move!")
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."chat" then
-			local Message = string.gsub(Message, _G.prefix.."chat ", "")
-			game.Players:Chat(Message)
-			chat(Message)
-		end
-		if string.lower(Message) == _G.prefix.."botchat" then
-			local msgs = {
-				"Waddup!",
-				"ayy!",
-				"wats good",
-				"holaa",
-				"i see",
-				"il think about it...",
-				"you good?",
-				"ayoooo",
-				"nahhh",
-				"oh hell nah",
-				"hell to the nah",
-				"jit trippin",
-				"ainnoway",
-				"im cringing rn",
-				"you mewin???"
-			}
-
-			chat(msgs[math.random(1, 15)])
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."goto" then
-			local Message = string.gsub(Message, _G.prefix.."goto ", "")
-			if game.Players:FindFirstChild(Message) then
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(Message).Character.HumanoidRootPart.CFrame
-			else
-				chat("[SCRIPT] The input you gave me is not a player. It is case sensetive! Next time, type the target's full username not displayname!")
-			end
-		end
-
-		if string.lower(splitMsg[1]) == _G.prefix.."walkto" then
-			local Message = string.gsub(Message, _G.prefix.."walkto ", "")
-			if game.Players:FindFirstChild(Message) then
-				game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').WalkToPoint = game.Players:FindFirstChild(Message).Character.HumanoidRootPart.Position
-			else
-				chat("[SCRIPT] The input you gave me is not a player. It is case sensetive! Next time, type the target's full username not displayname!")
-			end
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."forward" then
-			local Message = string.gsub(Message, _G.prefix.."forward ", "")
-			if Message + 1 then
-				keyrelease(keys["s"])
-				keypress(keys["w"])
-				wait(Message)
-				keyrelease(keys["w"])
-				keyrelease(keys["s"])
-				keyrelease(keys["a"])
-				keyrelease(keys["d"])
-			else
-				chat("[SCRIPT] The input you gave me is not a valid integer.")
-			end
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."backward" then
-			local Message = string.gsub(Message, _G.prefix.."backward ", "")
-			if Message + 1 then
-				keyrelease(keys["w"])
-				keypress(keys["s"])
-				wait(Message)
-				keyrelease(keys["w"])
-				keyrelease(keys["s"])
-				keyrelease(keys["a"])
-				keyrelease(keys["d"])
-			else
-				chat("[SCRIPT] The input you gave me is not a valid integer.")
-			end	
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."left" then
-			local Message = string.gsub(Message, _G.prefix.."left ", "")
-			if Message + 1 then
-				keyrelease(keys["d"])
-				keypress(keys["a"])
-				wait(Message)
-				keyrelease(keys["w"])
-				keyrelease(keys["s"])
-				keyrelease(keys["a"])
-				keyrelease(keys["d"])
-			else
-				chat("[SCRIPT] The input you gave me is not a valid integer.")
-			end
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."right" then
-			local Message = string.gsub(Message, _G.prefix.."right ", "")
-			if Message + 1 then
-				keyrelease(keys["a"])
-				keypress(keys["d"])
-				wait(Message)
-				keyrelease(keys["w"])
-				keyrelease(keys["s"])
-				keyrelease(keys["a"])
-				keyrelease(keys["d"])
-			else
-				chat("[SCRIPT] The input you gave me is not a valid integer.")
-			end	
-		end
-		if string.lower(Message) == _G.prefix.."stop" then
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."forward" then
+		local Message = string.gsub(Message, _G.prefix.."forward ", "")
+		if Message + 1 then
+			keyrelease(keys["s"])
+			keypress(keys["w"])
+			wait(Message)
 			keyrelease(keys["w"])
 			keyrelease(keys["s"])
 			keyrelease(keys["a"])
 			keyrelease(keys["d"])
+		else
+			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
-		if string.lower(Message) == _G.prefix.."jump" then
-			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."backward" then
+		local Message = string.gsub(Message, _G.prefix.."backward ", "")
+		if Message + 1 then
+			keyrelease(keys["w"])
+			keypress(keys["s"])
+			wait(Message)
+			keyrelease(keys["w"])
+			keyrelease(keys["s"])
+			keyrelease(keys["a"])
+			keyrelease(keys["d"])
+		else
+			chat("[SCRIPT] The input you gave me is not a valid integer.")
+		end	
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."left" then
+		local Message = string.gsub(Message, _G.prefix.."left ", "")
+		if Message + 1 then
+			keyrelease(keys["d"])
+			keypress(keys["a"])
+			wait(Message)
+			keyrelease(keys["w"])
+			keyrelease(keys["s"])
+			keyrelease(keys["a"])
+			keyrelease(keys["d"])
+		else
+			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
-		if string.lower(Message) == _G.prefix.."sit" then
-			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Sit = true
-		end
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."right" then
+		local Message = string.gsub(Message, _G.prefix.."right ", "")
+		if Message + 1 then
+			keyrelease(keys["a"])
+			keypress(keys["d"])
+			wait(Message)
+			keyrelease(keys["w"])
+			keyrelease(keys["s"])
+			keyrelease(keys["a"])
+			keyrelease(keys["d"])
+		else
+			chat("[SCRIPT] The input you gave me is not a valid integer.")
+		end	
+	end
+	if string.lower(Message) == _G.prefix.."stop" then
+		keyrelease(keys["w"])
+		keyrelease(keys["s"])
+		keyrelease(keys["a"])
+		keyrelease(keys["d"])
+	end
+	if string.lower(Message) == _G.prefix.."jump" then
+		game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+	end
+	if string.lower(Message) == _G.prefix.."sit" then
+		game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Sit = true
+	end
 
-		if string.lower(Message) == _G.prefix.."reset" then
-			if _G.enablekill == true then
-				game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health = -999
-			else
-				chat("[SCRIPT] The kill commands have been disabled by the script.")
-			end
+	if string.lower(Message) == _G.prefix.."reset" then
+		if _G.enablekill == true then
+			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health = -999
+		else
+			chat("[SCRIPT] The kill commands have been disabled by the script.")
 		end
-		if string.lower(Message) == _G.prefix.."dance" then
-			local dances = {"27789359", "30196114", "248263260", "45834924", "33796059", "28488254", "52155728"}
-			local animation = Instance.new("Animation")
-			animation.AnimationId = "rbxassetid://" .. dances[math.random(1, #dances)]
-			danceTrack = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):LoadAnimation(animation)
-			danceTrack.Looped = true
-			danceTrack:Play()
-			function undance() --local bangDied = game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-				danceTrack:Stop()
-				animation:Destroy()
-			end
+	end
+	if string.lower(Message) == _G.prefix.."dance" then
+		local dances = {"27789359", "30196114", "248263260", "45834924", "33796059", "28488254", "52155728"}
+		local animation = Instance.new("Animation")
+		animation.AnimationId = "rbxassetid://" .. dances[math.random(1, #dances)]
+		danceTrack = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):LoadAnimation(animation)
+		danceTrack.Looped = true
+		danceTrack:Play()
+		function undance() --local bangDied = game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+			danceTrack:Stop()
+			animation:Destroy()
 		end
-		if string.lower(Message) == _G.prefix.."undance" then
-			undance()
+	end
+	if string.lower(Message) == _G.prefix.."undance" then
+		undance()
+	end
+	if string.lower(Message) == _G.prefix.."lay" then
+		local ddd = Instance.new("Animation")
+		ddd.AnimationId = "rbxassetid://282574440"
+		daaaaa = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):LoadAnimation(ddd)
+		daaaaa.Looped = true
+		daaaaa:Play()
+		function unlay() --local bangDied = game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+			daaaaa:Stop()
+			ddd:Destroy()
 		end
-		if string.lower(Message) == _G.prefix.."lay" then
-			local ddd = Instance.new("Animation")
-			ddd.AnimationId = "rbxassetid://282574440"
-			daaaaa = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):LoadAnimation(ddd)
-			daaaaa.Looped = true
-			daaaaa:Play()
-			function unlay() --local bangDied = game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-				daaaaa:Stop()
-				ddd:Destroy()
-			end
-		end
-		if string.lower(Message) == _G.prefix.."unlay" then
-			unlay()
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."damage" then
-			local Message = string.gsub(Message, _G.prefix.."damage ", "")
-			if _G.enablekill == true then  
-				if Message + 1 then
-					game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health -= Message
-				else
-					chat("[SCRIPT] The input you gave me is not a valid integer.")
-				end
-			else
-				chat("[SCRIPT] The kill commands have been disabled by the script.")
-			end
-		end
-		if string.lower(Message) == _G.prefix.."stun" then
-			game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
-		end
-		if string.lower(Message) == _G.prefix.."unstun" then
-			game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
-		end
-		if string.lower(splitMsg[1]) == _G.prefix.."spin" then
-			local Message = string.gsub(Message, _G.prefix.."spin ", "")
+	end
+	if string.lower(Message) == _G.prefix.."unlay" then
+		unlay()
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."damage" then
+		local Message = string.gsub(Message, _G.prefix.."damage ", "")
+		if _G.enablekill == true then  
 			if Message + 1 then
-				local function getRoot(char)
-					local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
-					return rootPart
-				end
-
-				local Spin = Instance.new("BodyAngularVelocity")
-				Spin.Name = "Spinning"
-				Spin.Parent = getRoot(game.Players.LocalPlayer.Character)
-				Spin.MaxTorque = Vector3.new(0, math.huge, 0)
-				Spin.AngularVelocity = Vector3.new(0,Message,0)
+				game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health -= Message
 			else
 				chat("[SCRIPT] The input you gave me is not a valid integer.")
 			end
+		else
+			chat("[SCRIPT] The kill commands have been disabled by the script.")
 		end
-		if string.lower(Message) == _G.prefix.."unspin" then
-			if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning") then
-				game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
+	end
+	if string.lower(Message) == _G.prefix.."stun" then
+		game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
+	end
+	if string.lower(Message) == _G.prefix.."unstun" then
+		game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+	end
+	if string.lower(splitMsg[1]) == _G.prefix.."spin" then
+		local Message = string.gsub(Message, _G.prefix.."spin ", "")
+		if Message + 1 then
+			local function getRoot(char)
+				local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
+				return rootPart
 			end
+
+			local Spin = Instance.new("BodyAngularVelocity")
+			Spin.Name = "Spinning"
+			Spin.Parent = getRoot(game.Players.LocalPlayer.Character)
+			Spin.MaxTorque = Vector3.new(0, math.huge, 0)
+			Spin.AngularVelocity = Vector3.new(0,Message,0)
+		else
+			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
-		if string.lower(Message) == _G.prefix.."unspin" then
-			if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning") then
-				game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
+	end
+	if string.lower(Message) == _G.prefix.."unspin" then
+		if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning") then
+			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
+		end
+	end
+	if string.lower(Message) == _G.prefix.."unspin" then
+		if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning") then
+			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
+		end
+	end
+
+	if string.lower(splitMsg[1]) == _G.prefix.."bang" then
+		local Message = string.gsub(Message, _G.prefix.."bang ", "")
+		if Message + 1 then
+			local banganim = Instance.new("Animation", game.Players.LocalPlayer.Character.Humanoid)
+			banganim.AnimationId = "rbxassetid://148840371"
+			local bang = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(banganim)
+			bang:Play(0.1, 1, 1)
+			bang:AdjustSpeed(Message)
+			function unbng() --local bangDied = game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+				bang:Stop()
+				banganim:Destroy()
 			end
+		else
+			chat("[SCRIPT] The input you gave me is not a valid integer.")
 		end
+	end
+	if string.lower(Message) == _G.prefix.."unbang" then
+		unbng()
+	end
+	if string.lower(Message) == _G.prefix.."fps" then
+		chat(_G.FPS)
 
-		if string.lower(splitMsg[1]) == _G.prefix.."bang" then
-			local Message = string.gsub(Message, _G.prefix.."bang ", "")
-			if Message + 1 then
-				local banganim = Instance.new("Animation", game.Players.LocalPlayer.Character.Humanoid)
-				banganim.AnimationId = "rbxassetid://148840371"
-				local bang = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(banganim)
-				bang:Play(0.1, 1, 1)
-				bang:AdjustSpeed(Message)
-				function unbng() --local bangDied = game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-					bang:Stop()
-					banganim:Destroy()
-				end
-			else
-				chat("[SCRIPT] The input you gave me is not a valid integer.")
-			end
-		end
-		if string.lower(Message) == _G.prefix.."unbang" then
-			unbng()
-		end
-		if string.lower(Message) == _G.prefix.."fps" then
-			chat(_G.FPS)
+	end
+	if string.lower(Message) == _G.prefix.."roast" then
+		local roasts = {
+			"If brains were dynamite, you wouldn't have enough to blow your nose.",
+			"Are you always this obtuse, or are you making a special effort today?",
+			"I'd call you a tool, but at least a tool serves a purpose.",
+			"You must have been born on a highway because that's where most accidents happen.",
+			"Were you born on a farm? Because you sure know how to raise a lot of bull.",
+			"If I wanted to kill myself, I'd climb to your ego and jump to your IQ.",
+			"I'd give you a nasty look, but you've already got one.",
+			"I've met more interesting wall paint than you.",
+			"Did you fall from heaven? Because so did Satan.",
+			"If you had a dollar for every brain you don't have, you'd have one dollar.",
+			"You're not stupid; you just have bad luck when thinking.",
+			"I'd tell you to go to hell, but I think you're already there as a tourist.",
+			"If ignorance is bliss, you must be the happiest person on Earth.",
+			"You're the reason the average intelligence of the whole world drops every time you speak.",
+			"Were you born this boring, or did you have to work at it?",
+			"Is your name Wi-Fi? Because I'm feeling no connection here.",
+			"You're the human equivalent of a participation award.",
+			"The only way you'll ever get laid is if you crawl up a chicken's butt and wait.",
+			"If you were any less intelligent, we'd have to water you twice a week.",
+			"I'd say you're pathetic, but even that's giving you too much credit.",
+			"If your life was a movie, it would be a double feature: Dumb and Dumber.",
+			"I'd challenge you to a battle of wits, but I see you're unarmed.",
+			"Do you ever wonder what life would be like if you'd had enough oxygen at birth?",
+			"I'd give you a nasty look, but it appears you've already got one.",
+			"Are you always this vacuous or do you turn it up for special occasions?",
+			"I'd explain it to you, but I don't have any crayons.",
+			"You're the reason they put instructions on shampoo bottles.",
+			"Were you born at the zoo? Because you're the biggest joke I've ever seen.",
+			"If your brain was dynamite, there wouldn't be enough to blow your hat off.",
+			"You're like a slinky – not good for much, but amusing when pushed down stairs.",
+			"You're not completely useless; you can always serve as a bad example.",
+			"It's a shame you can't Photoshop your personality.",
+			"You're so dense, light bends around you.",
+			"I'd call you a donkey, but that would be an insult to the donkey.",
+			"You're not just a clown; you're the entire circus.",
+			"Are you naturally this obtuse or is this a skill you've honed over time?",
+			"I'd agree with you, but then we'd both be wrong.",
+			"I'd say you're a tool, but even tools have their uses.",
+			"You're proof that evolution can go in reverse.",
+			"You're the human equivalent of a participation trophy.",
+			"You're about as useful as a screen door on a submarine.",
+			"If you were any more inbred, you'd be a sandwich.",
+			"You're the reason the gene pool needs a lifeguard.",
+			"If ignorance is bliss, you must be the happiest person alive.",
+			"You're so dense, light has to bend around you.",
+			"You're not the dumbest person in the world, but you'd better hope they don't die.",
+			"I'd ask you to try to see things from my perspective, but I don't think your head could fit up your own rear end.",
+			"If your IQ was any lower, we'd have to water you twice a day.",
+			"You're the reason they had to put 'Do not drink' on bleach bottles.",
+			"I'd say you're dense, but that would be an insult to dense objects everywhere."
+		}
+		chat(roasts[math.random(1,50)])
 
-		end
-		if string.lower(Message) == _G.prefix.."roast" then
-			local roasts = {
-				"If brains were dynamite, you wouldn't have enough to blow your nose.",
-				"Are you always this obtuse, or are you making a special effort today?",
-				"I'd call you a tool, but at least a tool serves a purpose.",
-				"You must have been born on a highway because that's where most accidents happen.",
-				"Were you born on a farm? Because you sure know how to raise a lot of bull.",
-				"If I wanted to kill myself, I'd climb to your ego and jump to your IQ.",
-				"I'd give you a nasty look, but you've already got one.",
-				"I've met more interesting wall paint than you.",
-				"Did you fall from heaven? Because so did Satan.",
-				"If you had a dollar for every brain you don't have, you'd have one dollar.",
-				"You're not stupid; you just have bad luck when thinking.",
-				"I'd tell you to go to hell, but I think you're already there as a tourist.",
-				"If ignorance is bliss, you must be the happiest person on Earth.",
-				"You're the reason the average intelligence of the whole world drops every time you speak.",
-				"Were you born this boring, or did you have to work at it?",
-				"Is your name Wi-Fi? Because I'm feeling no connection here.",
-				"You're the human equivalent of a participation award.",
-				"The only way you'll ever get laid is if you crawl up a chicken's butt and wait.",
-				"If you were any less intelligent, we'd have to water you twice a week.",
-				"I'd say you're pathetic, but even that's giving you too much credit.",
-				"If your life was a movie, it would be a double feature: Dumb and Dumber.",
-				"I'd challenge you to a battle of wits, but I see you're unarmed.",
-				"Do you ever wonder what life would be like if you'd had enough oxygen at birth?",
-				"I'd give you a nasty look, but it appears you've already got one.",
-				"Are you always this vacuous or do you turn it up for special occasions?",
-				"I'd explain it to you, but I don't have any crayons.",
-				"You're the reason they put instructions on shampoo bottles.",
-				"Were you born at the zoo? Because you're the biggest joke I've ever seen.",
-				"If your brain was dynamite, there wouldn't be enough to blow your hat off.",
-				"You're like a slinky – not good for much, but amusing when pushed down stairs.",
-				"You're not completely useless; you can always serve as a bad example.",
-				"It's a shame you can't Photoshop your personality.",
-				"You're so dense, light bends around you.",
-				"I'd call you a donkey, but that would be an insult to the donkey.",
-				"You're not just a clown; you're the entire circus.",
-				"Are you naturally this obtuse or is this a skill you've honed over time?",
-				"I'd agree with you, but then we'd both be wrong.",
-				"I'd say you're a tool, but even tools have their uses.",
-				"You're proof that evolution can go in reverse.",
-				"You're the human equivalent of a participation trophy.",
-				"You're about as useful as a screen door on a submarine.",
-				"If you were any more inbred, you'd be a sandwich.",
-				"You're the reason the gene pool needs a lifeguard.",
-				"If ignorance is bliss, you must be the happiest person alive.",
-				"You're so dense, light has to bend around you.",
-				"You're not the dumbest person in the world, but you'd better hope they don't die.",
-				"I'd ask you to try to see things from my perspective, but I don't think your head could fit up your own rear end.",
-				"If your IQ was any lower, we'd have to water you twice a day.",
-				"You're the reason they had to put 'Do not drink' on bleach bottles.",
-				"I'd say you're dense, but that would be an insult to dense objects everywhere."
-			}
-			chat(roasts[math.random(1,50)])
+	end
+	if string.lower(Message) == _G.prefix.."rzz" then
+		local roasts = {
+			"Can I be your snowflake? I promise to never melt away from your heart.",
+			"Are you French? Because Eiffel for you.",
+			"Are you a Wi-Fi signal? Because I’m feeling a strong connection.",
+			"No pen, no paper...but, you still draw my attention. ",
+			"Are you a heart? Because I'd never stop beating for you. ",
+			"I believe in following my dreams, so you lead the way.",
+			"If being beautiful was a crime, you’d be on the most wanted list.",
+			"Kissing is a love language. Want to start a conversation with me?",
+			"Are you iron? Because I don’t get enough of you.",
+			"Should we get coffee? Cause I like you a latte.",
+			"You should be Jasmine without the 'Jas'.",
+			"Are you a Disney ride? Because I'd wait forever for you. ",
+			"Are you water? Because I'd die without you. ",
+			"I see you like tequila. Does that mean you'll give me a shot? ",
+			"Hey, I’m sorry to bother you, but my phone must be broken because it doesn’t seem to have your number in it.",
+			"Are you a boxer? Because you're a total knockout. ",
+			"Are you public speaking? Because you make me really nervous. ",
+			"Are you good at math? Me neither, the only number I care about is yours. ",
+			"I’m not religious, but you’re the answer to all of my prayers.",
+			"Is your name Elsa? Because I can't let you go. ",
+			"Do you know the difference between history and you? History is the past and you are my future.",
+			"Can I follow you home? My heart seems to have taken a detour since I met you.",
+			"Are you April 1st? Because I'm a fool for you. ",
+			"Are you the Krabby Patty formula? Because I'm trying to steal you. ",
+			"Is your name Chamomile? Because you're a hot-tea! ",
+			"Are you legos? Because I'd never lego of you. ",
+			"Do you work for NASA? Because your beauty is out of this world.",
+			"Math is so confusing. It's always talking about x and y and never you and I.",
+			"You look a lot like my next girlfriend/boyfriend/partner.",
+			"Are you Christmas morning? Because I’ve been waiting all year for you to arrive.",
+			"Are you from Tennessee? Because you're the only ten I see. ",
+			"Are you Nemo? Because I've been trying to find you. ",
+			"Are you a bank loan? Because you have my interest.",
+			"I hope you know CPR, because you just took my breath away. ",
+			"Are you the sun? Because I could stare at you all day, and it’d be worth the risk.",
+			"Are you a beaver? Because DAM! ",
+			"Are you a keyboard? Because you're just my type. ",
+			"My mom said sharing is caring but, no...you're all mine!",
+			"Are you John Cena? Because I've never Cena girl like you before. ",
+			"It's time to pay up. It's the first of the month, and you've been living in my mind rent-free. ",
+			"Are you a light? Because you always make me feel bright. ",
+			"Just so you know, I'm a felon...because I felon love with you. ",
+			"Do you like Star Wars? Cause Yoda only one for me. ",
+			"Are you chicken fingers and fries? Because I don't care how many options I have, I will always choose you.",
+			"It's a good thing I have a library card because I've been checking you out. ",
+			"We may not be pants, but we'd make a great pair. ",
+			"You know what's beautiful? Repeat the first word. ",
+			"Your eyes remind me of Ikea: easy to get lost in. ",
+			" Can I borrow a kiss? I promise to give one back.",
+			"If you were a Transformer, you'd be Optimus Fine. "
+		}
+		chat(roasts[math.random(1,50)])
 
-		end
-		if string.lower(Message) == _G.prefix.."rzz" then
-			local roasts = {
-				"Can I be your snowflake? I promise to never melt away from your heart.",
-				"Are you French? Because Eiffel for you.",
-				"Are you a Wi-Fi signal? Because I’m feeling a strong connection.",
-				"No pen, no paper...but, you still draw my attention. ",
-				"Are you a heart? Because I'd never stop beating for you. ",
-				"I believe in following my dreams, so you lead the way.",
-				"If being beautiful was a crime, you’d be on the most wanted list.",
-				"Kissing is a love language. Want to start a conversation with me?",
-				"Are you iron? Because I don’t get enough of you.",
-				"Should we get coffee? Cause I like you a latte.",
-				"You should be Jasmine without the 'Jas'.",
-				"Are you a Disney ride? Because I'd wait forever for you. ",
-				"Are you water? Because I'd die without you. ",
-				"I see you like tequila. Does that mean you'll give me a shot? ",
-				"Hey, I’m sorry to bother you, but my phone must be broken because it doesn’t seem to have your number in it.",
-				"Are you a boxer? Because you're a total knockout. ",
-				"Are you public speaking? Because you make me really nervous. ",
-				"Are you good at math? Me neither, the only number I care about is yours. ",
-				"I’m not religious, but you’re the answer to all of my prayers.",
-				"Is your name Elsa? Because I can't let you go. ",
-				"Do you know the difference between history and you? History is the past and you are my future.",
-				"Can I follow you home? My heart seems to have taken a detour since I met you.",
-				"Are you April 1st? Because I'm a fool for you. ",
-				"Are you the Krabby Patty formula? Because I'm trying to steal you. ",
-				"Is your name Chamomile? Because you're a hot-tea! ",
-				"Are you legos? Because I'd never lego of you. ",
-				"Do you work for NASA? Because your beauty is out of this world.",
-				"Math is so confusing. It's always talking about x and y and never you and I.",
-				"You look a lot like my next girlfriend/boyfriend/partner.",
-				"Are you Christmas morning? Because I’ve been waiting all year for you to arrive.",
-				"Are you from Tennessee? Because you're the only ten I see. ",
-				"Are you Nemo? Because I've been trying to find you. ",
-				"Are you a bank loan? Because you have my interest.",
-				"I hope you know CPR, because you just took my breath away. ",
-				"Are you the sun? Because I could stare at you all day, and it’d be worth the risk.",
-				"Are you a beaver? Because DAM! ",
-				"Are you a keyboard? Because you're just my type. ",
-				"My mom said sharing is caring but, no...you're all mine!",
-				"Are you John Cena? Because I've never Cena girl like you before. ",
-				"It's time to pay up. It's the first of the month, and you've been living in my mind rent-free. ",
-				"Are you a light? Because you always make me feel bright. ",
-				"Just so you know, I'm a felon...because I felon love with you. ",
-				"Do you like Star Wars? Cause Yoda only one for me. ",
-				"Are you chicken fingers and fries? Because I don't care how many options I have, I will always choose you.",
-				"It's a good thing I have a library card because I've been checking you out. ",
-				"We may not be pants, but we'd make a great pair. ",
-				"You know what's beautiful? Repeat the first word. ",
-				"Your eyes remind me of Ikea: easy to get lost in. ",
-				" Can I borrow a kiss? I promise to give one back.",
-				"If you were a Transformer, you'd be Optimus Fine. "
-			}
-			chat(roasts[math.random(1,50)])
+	end
+	if string.lower(Message) == _G.prefix.."rickroll" then
+		chat("never gonna give you up!")
+		wait(1)
+		chat("never gonna let you down")
+		wait(1)
+		chat("never gonna run around and desert you")
+		wait(1)
+		chat("never gonna make you cry")
+		wait(1)
+		chat("never gonna say goodbye")
+		wait(1)
+		chat("never gonna tell a lie")
+		wait(1)
+		chat("and hurt you")
 
+	end
+	if string.lower(Message) == _G.prefix.."flipcoin" then
+		chat("Flipping coin...")
+		wait(0.4)
+		chat("Coins on the air...")
+		wait(1 + math.random())
+		local randomnumber = math.random(1,2)
+		if randomnumber == 1 then
+			chat("Heads! 😃")
+		else
+			chat("Tails! 🐈")
 		end
-		if string.lower(Message) == _G.prefix.."rickroll" then
-			chat("never gonna give you up!")
-			wait(1)
-			chat("never gonna let you down")
-			wait(1)
-			chat("never gonna run around and desert you")
-			wait(1)
-			chat("never gonna make you cry")
-			wait(1)
-			chat("never gonna say goodbye")
-			wait(1)
-			chat("never gonna tell a lie")
-			wait(1)
-			chat("and hurt you")
+	end
+	if string.lower(Message) == _G.prefix.."dice" then
+		chat("Rolling dice...")
+		wait(1 + math.random())
+		local randomnumber = math.random(1,6)
+		chat("It rolled on "..randomnumber.."!🎲")
+	end
+	if string.lower(Message) == _G.prefix.."freeze" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+	end
+	if string.lower(Message) == _G.prefix.."unfreeze" then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	end
+end
 
-		end
-		if string.lower(Message) == _G.prefix.."flipcoin" then
-			chat("Flipping coin...")
-			wait(0.4)
-			chat("Coins on the air...")
-			wait(1 + math.random())
-			local randomnumber = math.random(1,2)
-			if randomnumber == 1 then
-				chat("Heads! 😃")
-			else
-				chat("Tails! 🐈")
-			end
-		end
-		if string.lower(Message) == _G.prefix.."dice" then
-			chat("Rolling dice...")
-			wait(1 + math.random())
-			local randomnumber = math.random(1,6)
-			chat("It rolled on "..randomnumber.."!🎲")
-		end
-		if string.lower(Message) == _G.prefix.."freeze" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-		end
-		if string.lower(Message) == _G.prefix.."unfreeze" then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-		end
-
+for _,plr in pairs(game.Players:GetPlayers()) do
+	plr.Chatted:Connect(function(msg)
+		boot(msg)
 	end)
 end
+
+game.Players.PlayerAdded:Connect(function(plr)
+	plr.Chatted:Connect(function(msg)
+		boot(msg)
+	end)
+end)
 
 
 if _G.logmessages == true then
