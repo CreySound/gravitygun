@@ -32,7 +32,6 @@ local credit = "ControlBot Script made by CreySound, do not attempt to plagiariz
 local worked = "[SCRIPT] Bot is Running!"
 local cmds = "Commands are: ".._G.prefix.."cmds, ".._G.prefix.."invite, ".._G.prefix.."credits, ".._G.prefix.."info, ".._G.prefix.."about, ".._G.prefix.."chat <string>, ".._G.prefix.."botchat, ".._G.prefix.."goto <user>, "
 local cmds2 = _G.prefix."walkto <user>, ".._G.prefix.."forward <seconds>, ".._G.prefix.."backward <seconds>, ".._G.prefix.."left <seconds>, right <seconds>, ".._G.prefix.."stop, ".._G.prefix.."jump,"
-
 local cnds3 = .._G.prefix.."sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, ".._G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, "
 local cmds4 = _G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz, ".._G.prefix.."rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
 
@@ -170,6 +169,8 @@ wait(1 + math.random())
 chat(worked)
 chat(cmds)
 chat(cmds2)
+chat(cmds3)
+chat(cmds4)
 if _G.stoprendering == true then
 	game["Run Service"]:Set3dRenderingEnabled(false)
 end
