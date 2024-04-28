@@ -1,5 +1,5 @@
 -- GITHUBS FUCKING UPDATE DELAY IS FUCKING RETARDED AS FUCK
--- so no f auckf
+-- so no f auckfaaaaa
 --[[
 -- ! ! CONFIG ! ! --
 
@@ -17,7 +17,7 @@ _G.stoprendering = true -- Increases FPS
 _G.tips = true -- To guide the player some information about the bot.
 
 -- ! ! CONFIG ! ! --
-]]
+]] 
 local function chat(_string)
 	if game.TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
 		game.TextChatService.TextChannels.RBXGeneral:SendAsync(_string, "All");
