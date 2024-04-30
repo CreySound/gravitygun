@@ -210,7 +210,6 @@ local function boot(Message)
 		chat(cmds)
 		chat(cmds2)
 		chat(cmds3)
-		chat(cmds4)
 		--send(wh, plr.Name, Message)
 	end
 	if string.lower(Message) == _G.prefix.."invite" then
