@@ -12,7 +12,7 @@ local cmds = "Commands are: ".._G.prefix.."cmds, ".._G.prefix.."invite, ".._G.pr
 local cmds2 = _G.prefix.."left <seconds>, right <seconds>, ".._G.prefix.."stop, ".._G.prefix.."jump,".._G.prefix.."sit, ".._G.prefix.."reset, ".._G.prefix.."dance, ".._G.prefix.."undance, ".._G.prefix.."lay, ".._G.prefix.."unlay, ".._G.prefix.."damage <val>, ".._G.prefix.."stun, ".._G.prefix.."unstun, "
 local cmds3 = _G.prefix.."spin <val>, ".._G.prefix.."unspin, ".._G.prefix.."bang <speed>, ".._G.prefix.."unbang, ".._G.prefix.."fps, ".._G.prefix.."roast, ".._G.prefix.."rzz, ".._G.prefix.."rickroll, ".._G.prefix.."flipcoin, ".._G.prefix.."dice, ".._G.prefix.."freeze, ".._G.prefix.."unfreeze"
 
-local _version = 2.65
+local _version = 2.66
 
 local StarterGui = game:GetService("StarterGui")
 StarterGui:SetCore("SendNotification",{
@@ -274,7 +274,7 @@ local function boot(Message)
 	end
 	if string.lower(splitMsg[1]) == _G.prefix.."forward" then
 		local Message = string.gsub(Message, _G.prefix.."forward ", "")
-		if Message + 1 then
+		if Message then
 			keyrelease(keys["s"])
 			keypress(keys["w"])
 			wait(Message)
@@ -288,7 +288,7 @@ local function boot(Message)
 	end
 	if string.lower(splitMsg[1]) == _G.prefix.."backward" then
 		local Message = string.gsub(Message, _G.prefix.."backward ", "")
-		if Message + 1 then
+		if Message then
 			keyrelease(keys["w"])
 			keypress(keys["s"])
 			wait(Message)
@@ -302,7 +302,7 @@ local function boot(Message)
 	end
 	if string.lower(splitMsg[1]) == _G.prefix.."left" then
 		local Message = string.gsub(Message, _G.prefix.."left ", "")
-		if Message + 1 then
+		if Message then
 			keyrelease(keys["d"])
 			keypress(keys["a"])
 			wait(Message)
@@ -316,7 +316,7 @@ local function boot(Message)
 	end
 	if string.lower(splitMsg[1]) == _G.prefix.."right" then
 		local Message = string.gsub(Message, _G.prefix.."right ", "")
-		if Message + 1 then
+		if Message then
 			keyrelease(keys["a"])
 			keypress(keys["d"])
 			wait(Message)
@@ -380,7 +380,7 @@ local function boot(Message)
 	if string.lower(splitMsg[1]) == _G.prefix.."damage" then
 		local Message = string.gsub(Message, _G.prefix.."damage ", "")
 		if _G.enablekill == true then  
-			if Message + 1 then
+			if Message then
 				game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Health -= Message
 			else
 				chat("[SCRIPT] The input you gave me is not a valid integer.")
@@ -397,7 +397,7 @@ local function boot(Message)
 	end
 	if string.lower(splitMsg[1]) == _G.prefix.."spin" then
 		local Message = string.gsub(Message, _G.prefix.."spin ", "")
-		if Message + 1 then
+		if Message then
 			local function getRoot(char)
 				local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
 				return rootPart
@@ -417,15 +417,10 @@ local function boot(Message)
 			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
 		end
 	end
-	if string.lower(Message) == _G.prefix.."unspin" then
-		if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning") then
-			game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Spinning"):Destroy()
-		end
-	end
 
 	if string.lower(splitMsg[1]) == _G.prefix.."bang" then
 		local Message = string.gsub(Message, _G.prefix.."bang ", "")
-		if Message + 1 then
+		if Message then
 			local banganim = Instance.new("Animation", game.Players.LocalPlayer.Character.Humanoid)
 			banganim.AnimationId = "rbxassetid://148840371"
 			local bang = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(banganim)
