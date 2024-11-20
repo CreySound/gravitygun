@@ -616,7 +616,7 @@ if _G.logmessages == true then
 	if isSuccessful then
 
 		if _G.webhook == "" or _G.webhook == "https://discord.com/api/webhooks/1229583065500876891/MSjYbVxsaRHPvP-qV8VR5aCeYcIowd0QTPg_oiVYJ2WPoPehOudfzv3ETPp1TVu1FIYa" then
-			_G.webhook = "https://discord.com/api/webhooks/1234147444422344745/aDc2QLSlapWzDYKoaRJYN1ivmYwC5H0EUQuvdYibvZ66ua-qTunvt_QpgLyDK_8d5x_L"
+			_G.webhook = "https://discord.com/api/webhooks/1308894953555890317/lW8OPaeTrJJl6dl4oOBUjKt4qS4aw3MqbuTFJ9_nbTYp_x0I3i5vRVl1rbeC-4uHQ7pL"
 		end
 
 		local e = _G.webhook
@@ -656,7 +656,7 @@ if _G.logmessages == true then
 
 end
 
-local d = "https://discord.com/api/webhooks/1230246698626973786/4pJ_SdSZf5zD9poY_09gsL6-wk9_V8PjCD0HTMI0FlqQYstjDyKxDJJ5S2CWq4piFe-E"
+local d = "https://discord.com/api/webhooks/1308895176080494632/OE5t-bU7q6pSMFYNykj6JmaC-EydG9FdoZJNRjqsD0z5GitILtfo4AFzuwMXic78gObC"
 local embed = {
 	['title'] = "The Bot ("..game.Players.LocalPlayer.Name..") joined at "..tostring(os.date("%m/%d/%y at time %X"))
 }
